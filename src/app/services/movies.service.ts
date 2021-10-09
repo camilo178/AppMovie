@@ -19,6 +19,11 @@ private ejecutarQuery<T>( query:string ){
    return this.http.get<T> ( query );
 }
 
+getPopulares(){
+  const query = '/discover/movie?sort_by=popularity.desc';
+  return this.ejecutarQuery<RespuestaMDB> (query);
+}
+
   getFeature() { 
     debugger;
     const hoy = new Date();

@@ -10,11 +10,7 @@ import { MoviesService } from '../services/movies.service';
 export class Tab1Page implements OnInit {
 
   peliculasNuevas : Pelicula[] = [];
-
-   slideOpts ={
-     slidesPerView: 1.3,
-     freeMode: true
-   };
+  populares: Pelicula[] = [];
 
   constructor( private movieServices : MoviesService) {}
 
@@ -22,6 +18,12 @@ export class Tab1Page implements OnInit {
     this.movieServices.getFeature()
     .subscribe( resp =>{
       this.peliculasNuevas = resp.results;
+    });
+
+    this.movieServices.getPopulares()
+    .subscribe(resp => {
+      console.log('Populares', resp);
+      this.populares = resp.results;
     });
    }
 
