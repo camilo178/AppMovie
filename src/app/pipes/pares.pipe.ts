@@ -14,8 +14,6 @@ transform( arr: any[] ): any[] {
     }
     return result;
   }, []);
-
-  console.log(pares);
   return pares;
   }
 
